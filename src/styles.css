@@ -1,1 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #15e37c 0%, #08726e 100%); /* Освеженный градиентный фон, включающий зеленый и голубо-зеленый */
+
+  color: #fff;
+}

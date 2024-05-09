@@ -1,0 +1,188 @@
+<!--<div class="people-list" id="people-list">-->
+<!--  <div class="search">-->
+<!--    &lt;!&ndash;      <input id="userName" placeholder="search" type="text" th:value="${me}" disabled />&ndash;&gt;-->
+
+<!--  </div>-->
+<!--  <ul class="list" id="usersList">-->
+<!--    &lt;!&ndash;      <li th:each="user : ${userList}" th:text="${user}" class="friend" ></li>&ndash;&gt;-->
+<!--    @for (name of list; track name){-->
+<!--      <app-people-list-item [userName]="name" (onChanged)="onChanged($event)"></app-people-list-item>-->
+<!--&lt;!&ndash;      <li  class="friend" #nameText (click)="change()">{{userName}}</li>&ndash;&gt;-->
+
+<!--    }-->
+
+<!--  </ul>-->
+<!--</div>-->
+
+<!--<div class="chat">-->
+<!--  <div class="chat-header clearfix">-->
+<!--    <img alt="avatar" height="55px"-->
+<!--         src=""-->
+<!--         width="55px"/>-->
+
+<!--    <div class="chat-about">-->
+<!--      <div class="chat-with" id="selectedUserId"></div>-->
+<!--      <div class="chat-num-messages"></div>-->
+<!--    </div>-->
+<!--    <i class="fa fa-star"></i>-->
+<!--  </div> &lt;!&ndash; end chat-header &ndash;&gt;-->
+
+<!--  <div class="chat-history">-->
+<!--    <ul>-->
+<!--      @for (messageOutput of messageList;track messageOutput.id){-->
+<!--        @if (author==messageOutput.author){-->
+<!--          <li class="clearfix">-->
+<!--            <div class="message-data align-right">-->
+<!--              <span class="message-data-name">{{messageOutput.author}}</span> <i class="fa fa-circle me"></i>-->
+<!--            </div>-->
+<!--            <div class="message other-message float-right">-->
+<!--              {{messageOutput.text}}-->
+<!--            </div>-->
+<!--          </li>-->
+<!--        } @else {-->
+<!--          <li>-->
+<!--            <div class="message-data">-->
+<!--              <span class="message-data-name"><i class="fa fa-circle online"></i> {{messageOutput.author}}</span>-->
+<!--            </div>-->
+<!--            <div class="message my-message">-->
+<!--              {{messageOutput.text}}-->
+<!--            </div>-->
+<!--          </li>-->
+<!--        }-->
+
+<!--      }-->
+
+<!--    </ul>-->
+
+<!--  </div> &lt;!&ndash; end chat-history &ndash;&gt;-->
+
+<!--  <div class="chat-message clearfix">-->
+<!--    <textarea id="message-to-send"[(ngModel)]="messageToSend" placeholder="Type your message" rows="3"></textarea>-->
+
+<!--    <i class="fa fa-file-o"></i> &nbsp;&nbsp;&nbsp;-->
+<!--    <i class="fa fa-file-image-o"></i>-->
+
+<!--&lt;!&ndash;          <button id="sendBtn" (click)="sendMessage()" th:name="${me}">Send</button>&ndash;&gt;-->
+<!--    <button id="sendBtn" (click)="sendMessage()">Send</button>-->
+
+
+<!--  </div> &lt;!&ndash; end chat-message &ndash;&gt;-->
+
+<!--</div> &lt;!&ndash; end chat &ndash;&gt;-->
+
+
+
+
+
+
+
+
+
+<div class="container">
+  <aside class="people-list" id="people-list">
+
+    <div class="search" style="font-size: 20px; text-align: center; height: 42.36px; display: flex;, justify-content: center;  align-items: center;">
+      Ваши друзья
+    </div>
+    <ul class="list" id="usersList">
+      @for (name of list; track name){
+        @if (name!=author){
+          <app-people-list-item [userName]="name" (onChanged)="onChanged($event)"></app-people-list-item>
+        }
+      }
+    </ul>
+    <footer class="log-out">
+      <button id="LogBtn" (click)="logOut()">Выйти</button>
+    </footer>
+  </aside>
+
+  <div class="chat">
+    <header class="chat-header">
+      @if (userName!=""){
+        <img src="./assets/icons8-user-96.png" alt="User Avatar" height="40" width="40">
+        <div class="chat-about">
+          <div class="chat-with" id="selectedUserId">{{userName}}</div>
+          <div class="chat-num-messages"></div>
+        </div>
+      } @else{
+        <div class="chat-about">
+          <div class="chat-with" id="selectedUserId" style="font-size: 30px">VMeste</div>
+          <div class="chat-num-messages"></div>
+        </div>
+      }
+
+      <i class="fa fa-star"></i>
+    </header>
+
+    <div class="chat-history">
+      <ul>
+        @for (messageOutput of messageList; track messageOutput.id){
+          @if (author == messageOutput.author){
+            <li class="clearfix">
+              <div class="message-data align-right">
+                <span class="message-data-name">{{messageOutput.author}}</span> <i class="fa fa-circle me"></i>
+              </div>
+              <div class="message other-message float-right">
+                {{messageOutput.text}}
+              </div>
+            </li>
+          } @else {
+            <li>
+              <div class="message-data">
+                <span class="message-data-name"><i class="fa fa-circle online"></i> {{messageOutput.author}}</span>
+              </div>
+              <div class="message my-message">
+                {{messageOutput.text}}
+              </div>
+            </li>
+          }
+        }
+      </ul>
+    </div>
+
+    <footer class="chat-message">
+      <textarea id="message-to-send" [(ngModel)]="messageToSend" placeholder="Написать сообщение..." rows="3"></textarea>
+      <i class="fa fa-file-o"></i>
+      <i class="fa fa-file-image-o"></i>
+      <button id="sendBtn" (click)="sendMessage()">Отправить</button>
+    </footer>
+  </div>
+</div>
+
+
+
+<!--<div class="container">-->
+<!--  <aside class="people-list" id="people-list">-->
+<!--    <div class="search">-->
+<!--      <input id="userName" placeholder="Search" type="text" disabled>-->
+<!--    </div>-->
+<!--    <ul class="list" id="usersList">-->
+<!--      @for (name of list; track name){-->
+<!--        <app-people-list-item [userName]="name" (onChanged)="onChanged($event)"></app-people-list-item>-->
+<!--      }-->
+<!--    </ul>-->
+<!--    <button class="btn-add">+</button>-->
+<!--  </aside>-->
+
+<!--  <div class="chat">-->
+<!--    <header class="chat-header">-->
+<!--      <img src="avatar_placeholder.png" alt="User Avatar" height="55" width="55">-->
+<!--      <div class="chat-about">-->
+<!--        <div class="chat-with" id="selectedUserId"></div>-->
+<!--        <div class="chat-num-messages"></div>-->
+<!--      </div>-->
+<!--      <i class="fa fa-star"></i>-->
+<!--    </header>-->
+
+<!--    <div class="chat-history">-->
+<!--      <ul>-->
+<!--        &lt;!&ndash; Сообщения будут сгенерированы здесь &ndash;&gt;-->
+<!--      </ul>-->
+<!--    </div>-->
+
+<!--    <footer class="chat-message">-->
+<!--      <textarea id="message-to-send" [(ngModel)]="messageToSend" placeholder="Type your message" rows="3"></textarea>-->
+<!--      <button class="btn-send">Send</button>-->
+<!--    </footer>-->
+<!--  </div>-->
+<!--</div>-->

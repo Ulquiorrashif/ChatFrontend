@@ -1,0 +1,13 @@
+<div class="people-list" id="people-list">
+  <div class="search">
+    <!--      <input id="userName" placeholder="search" type="text" th:value="${me}" disabled />-->
+
+  </div>
+  <ul class="list" id="usersList">
+    <!--      <li th:each="user : ${userList}" th:text="${user}" class="friend" ></li>-->
+    @for (user of list; track user){
+      <app-people-list-item [userName]="user"></app-people-list-item>
+    }
+
+  </ul>
+</div>

@@ -1,0 +1,361 @@
+<!--<div class="cont-panel">-->
+<!--  <div class="panel">-->
+<!--    <button (click)="setState(true)">Войти</button>-->
+<!--    <button (click)="setState(false)">Регистрация</button>-->
+<!--  </div>-->
+<!--</div>-->
+<!--<div class="cont-form">-->
+<!--  <div>-->
+<!--    @if (state){-->
+<!--      <form #loginForm=ngForm (ngSubmit)="login(loginForm)">-->
+<!--        <h1>VMeste</h1>-->
+<!--        <input placeholder="email"  name="login" [(ngModel)]="email">-->
+<!--        <input placeholder="password"  name="password" [(ngModel)]="password">-->
+<!--        <button type="submit">Войти</button>-->
+<!--      </form>-->
+<!--    } @else {-->
+<!--      <form #registrationForm=ngForm (ngSubmit)="registration(registrationForm)">-->
+<!--        <h1>VMeste</h1>-->
+<!--        <input placeholder="email"  name="email" [(ngModel)]="email">-->
+<!--        <input placeholder="email"  name="name" [(ngModel)]="name">-->
+<!--        <input placeholder="password"  name="password" [(ngModel)]="password">-->
+<!--        <button type="submit">Регистрация</button>-->
+<!--      </form>-->
+<!--    }-->
+<!--  </div>-->
+<!--</div>-->
+
+
+
+<!--<style>-->
+<!--  .cont-panel{-->
+<!--    width: 100vw;-->
+<!--    height: 20vh;-->
+<!--  }-->
+<!--  .panel{-->
+<!--    display: flex;-->
+<!--    justify-content: center;-->
+<!--    height: 100%;-->
+<!--    width: 100%;-->
+<!--  }-->
+<!--  .panel button{-->
+<!--    margin: 10px;-->
+<!--    width: 100px;-->
+<!--    height: 200px;-->
+<!--  }-->
+<!--  body{-->
+<!--    color: #C5DDEB;-->
+<!--    padding: 0;-->
+<!--    background-color: #C5DDEB;-->
+<!--    margin: 0;-->
+<!--    height: 100vh;-->
+<!--    width: 100vw;-->
+<!--  }-->
+<!--  main{-->
+
+<!--    height: 100%;-->
+<!--    width: 100%;-->
+<!--    margin: 0;-->
+<!--    position: relative;-->
+<!--    padding: 1px;-->
+<!--  }-->
+
+<!--  .cont-form{-->
+<!--    width: 100vw;-->
+<!--    height: 50vh;-->
+<!--  }-->
+<!--  form {-->
+<!--    display: flex;-->
+<!--    justify-content: space-around;-->
+<!--    flex-direction: column;-->
+<!--    align-items: center;-->
+<!--    background-color: #434651;-->
+<!--    height: 30%;-->
+<!--    width: 40%;-->
+<!--    margin: 10% 30% ;-->
+<!--    border-radius: 25px;-->
+<!--  }-->
+<!--  /*form:last-child{*/-->
+<!--  /*    padding-right: 0;*/-->
+<!--  /*}*/-->
+<!--  input {-->
+<!--    border-radius: 3px;-->
+<!--    border: none;-->
+<!--    padding: 14px;-->
+<!--    color: #e1e1e1;-->
+<!--    background: #6A6C75;-->
+<!--    width: 90%;-->
+<!--    font-size: 14px;-->
+<!--  }-->
+<!--  button{-->
+<!--    float: right;-->
+<!--    color: #94C2ED;-->
+<!--    font-size: 16px;-->
+<!--    text-transform: uppercase;-->
+<!--    border: none;-->
+<!--    cursor: pointer;-->
+<!--    font-weight: bold;-->
+<!--    background: #434651;-->
+<!--  }-->
+
+<!--</style>-->
+<div class="container">
+  <div class="panel">
+    <button class="button" (click)="setState(true)">Войти</button>
+    <button class="button" (click)="setState(false)">Регистрация</button>
+  </div>
+  <div class="form-container">
+    @if (state){
+      <form class="form" #loginForm=ngForm (ngSubmit)="login(loginForm)">
+        <h1 class="form-title">VMeste</h1>
+        <input class="input" type="email" placeholder="Email" name="login" [(ngModel)]="email">
+        <input class="input" type="password" placeholder="Password" name="password" [(ngModel)]="password">
+        <button class="submit-button" type="submit">Войти</button>
+      </form>
+    } @else {
+      <form class="form" #registrationForm=ngForm (ngSubmit)="registration(registrationForm)">
+        <h1 class="form-title">VMeste</h1>
+        <input class="input" type="email" placeholder="Email" name="email" [(ngModel)]="email">
+        <input class="input" type="text" placeholder="Name" name="name" [(ngModel)]="name">
+        <input class="input" type="password" placeholder="Password" name="password" [(ngModel)]="password">
+        <button class="submit-button" type="submit">Регистрация</button>
+      </form>
+    }
+  </div>
+</div>
+<style>
+  /*body, html {*/
+  /*  height: 100%;*/
+  /*  margin: 0;*/
+  /*  padding: 0;*/
+  /*  font-family: Arial, sans-serif;*/
+  /*  background-color: #f4f4f9;*/
+  /*  color: #333;*/
+  /*}*/
+
+  /*.container {*/
+  /*  display: flex;*/
+  /*  flex-direction: column;*/
+  /*  align-items: center;*/
+  /*  justify-content: center;*/
+  /*  height: 100%;*/
+  /*}*/
+
+  /*.panel {*/
+  /*  margin-bottom: 20px;*/
+  /*}*/
+
+  /*.button {*/
+  /*  background-color: #5c67f2;*/
+  /*  color: white;*/
+  /*  border: none;*/
+  /*  padding: 10px 20px;*/
+  /*  margin: 0 10px;*/
+  /*  border-radius: 5px;*/
+  /*  cursor: pointer;*/
+  /*  transition: background-color 0.3s;*/
+  /*}*/
+
+  /*.button:hover {*/
+  /*  background-color: #4a54e1;*/
+  /*}*/
+
+  /*.form-container {*/
+  /*  width: 90%;*/
+  /*  max-width: 400px;*/
+  /*}*/
+
+  /*.form {*/
+  /*  background-color: white;*/
+  /*  padding: 20px;*/
+  /*  box-shadow: 0 4px 8px rgba(0,0,0,0.1);*/
+  /*  border-radius: 10px;*/
+  /*  display: flex;*/
+  /*  flex-direction: column;*/
+  /*}*/
+
+  /*.form-title {*/
+  /*  margin-bottom: 20px;*/
+  /*}*/
+
+  /*.input {*/
+  /*  padding: 10px;*/
+  /*  margin-bottom: 10px;*/
+  /*  border: 2px solid #ccc;*/
+  /*  border-radius: 5px;*/
+  /*}*/
+
+  /*.submit-button {*/
+  /*  background-color: #4CAF50;*/
+  /*  color: white;*/
+  /*  border: none;*/
+  /*  padding: 10px;*/
+  /*  border-radius: 5px;*/
+  /*  cursor: pointer;*/
+  /*  transition: background-color 0.3s;*/
+  /*}*/
+
+  /*.submit-button:hover {*/
+  /*  background-color: #45a049;*/
+  /*}*/
+  /*body, html {*/
+  /*  height: 100%;*/
+  /*  margin: 0;*/
+  /*  padding: 0;*/
+  /*  font-family: Arial, sans-serif;*/
+  /*  background-color: #20232a;*/
+  /*  color: #fff;*/
+  /*}*/
+
+  /*.container {*/
+  /*  display: flex;*/
+  /*  flex-direction: column;*/
+  /*  align-items: center;*/
+  /*  justify-content: center;*/
+  /*  height: 100%;*/
+  /*}*/
+
+  /*.panel {*/
+  /*  margin-bottom: 20px;*/
+  /*}*/
+
+  /*.button {*/
+  /*  background: linear-gradient(145deg, #3a3f47, #636e72);*/
+  /*  color: white;*/
+  /*  border: none;*/
+  /*  padding: 10px 20px;*/
+  /*  margin: 0 10px;*/
+  /*  border-radius: 5px;*/
+  /*  cursor: pointer;*/
+  /*  transition: transform 0.2s, box-shadow 0.2s;*/
+  /*}*/
+
+  /*.button:hover {*/
+  /*  transform: translateY(-2px);*/
+  /*  box-shadow: 0 4px 8px rgba(0,0,0,0.2);*/
+  /*}*/
+
+  /*.form-container {*/
+  /*  width: 90%;*/
+  /*  max-width: 400px;*/
+  /*}*/
+
+  /*.form {*/
+  /*  background-color: #2c313c;*/
+  /*  padding: 20px;*/
+  /*  box-shadow: 0 8px 16px rgba(0,0,0,0.1);*/
+  /*  border-radius: 10px;*/
+  /*  display: flex;*/
+  /*  flex-direction: column;*/
+  /*}*/
+
+  /*.form-title {*/
+  /*  color: #76c7c0;*/
+  /*  margin-bottom: 20px;*/
+  /*}*/
+
+  /*.input {*/
+  /*  padding: 10px;*/
+  /*  margin-bottom: 10px;*/
+  /*  border: 2px solid #40454f;*/
+  /*  border-radius: 5px;*/
+  /*  background: #292d35;*/
+  /*  color: #fff;*/
+  /*}*/
+
+  /*.submit-button {*/
+  /*  background: linear-gradient(145deg, #4b79a1, #283e51);*/
+  /*  color: white;*/
+  /*  border: none;*/
+  /*  padding: 10px;*/
+  /*  border-radius: 5px;*/
+  /*  cursor: pointer;*/
+  /*  transition: background-color 0.3s;*/
+  /*}*/
+
+  /*.submit-button:hover {*/
+  /*  background: linear-gradient(145deg, #415b76, #1b2838);*/
+  /*}*/
+  body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #15e37c 0%, #08726e 100%); /* Градиентный фон страницы */
+    color: #fff;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+
+  .panel {
+    margin-bottom: 20px;
+  }
+
+  .button {
+    background: #08726e; /* Темно-зеленый фон для кнопок */
+    color: white;
+    /*border: 2px solid #15e37c; !* Светло-зеленая окантовка для большей видимости *!*/
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    background: #15e37c; /* Светлее при наведении для лучшей видимости */
+  }
+
+  .form-container {
+    width: 90%;
+    max-width: 400px;
+  }
+
+  .form {
+    background: rgba(255, 255, 255, 0.9); /* Полупрозрачный белый фон для формы */
+    padding: 20px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-title {
+    color: #08726e; /* Темно-зеленый для заголовка */
+    margin-bottom: 20px;
+  }
+
+  .input {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 2px solid #08726e; /* Темно-зеленая граница для лучшей видимости */
+    border-radius: 5px;
+    background: #fff; /* Белый фон для инпутов */
+    color: #333;
+  }
+
+  .submit-button {
+    background: #08726e; /* Темно-зеленый фон для кнопки отправки */
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .submit-button:hover {
+    background: #15e37c; /* Светло-зеленый при наведении */
+  }
+
+
+
+</style>
