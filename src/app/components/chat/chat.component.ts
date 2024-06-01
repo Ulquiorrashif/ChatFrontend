@@ -9,14 +9,14 @@ import {Router} from "@angular/router";
 import {DataService} from "../../services/data.service";
 import {catchError, map} from "rxjs";
 import {environment} from "../../../environments/environment";
-import {NgIconComponent} from "@ng-icons/core";
+
 
 
 @Component({
   selector: 'app-chat',
   standalone: true,
   imports: [HttpClientModule, FormsModule, PeopleListItemComponent],
-  providers:[HttpService,NgIconComponent],
+  providers:[HttpService],
   templateUrl: './chat.component.html',
   styleUrl: './chat.component.css'
 })
