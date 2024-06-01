@@ -1,4 +1,4 @@
 export const environment = {
-  production: true,
+  production: false,
   path: "ulquiorrashif-chatback-876d.twc1.net"
 }
