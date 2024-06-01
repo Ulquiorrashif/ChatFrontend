@@ -20,7 +20,6 @@ export class LoginComponent {
   state:boolean =true;
   constructor(private service: HttpService) {
   }
-
   login(form :NgForm) {
     // console.log(form)
     this.service.login(form.value);

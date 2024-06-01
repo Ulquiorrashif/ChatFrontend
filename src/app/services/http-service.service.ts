@@ -11,17 +11,6 @@ import {environment} from "../../environments/environment";
 @Injectable()
 export class HttpService {
   errorMessage: String = "";
-  datas:any=null
-  chatId:number=-1;
-  author:string=""
-
-
-
-
-  stompClient: any; // Используйте подходящую типизацию для вашего STOMP клиента
-  private socket: any;
-
-
   constructor(private http: HttpClient,private router: Router,private dataService: DataService) { }
   setToken(token:string | null):void{
     if (token !== null) {
@@ -49,7 +38,6 @@ export class HttpService {
       // console.log(this.errorMessage);
       return err;
     }));
-
   }
 
   login(value: any){
